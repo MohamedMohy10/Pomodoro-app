@@ -4,8 +4,8 @@ import math
 # Colors
 PINK = "#e2979c"
 RED = "#e7305b"
-GREEN = "#9bdeac"
-YELLOW = "#f7f5dd"
+GREEN_LIGHT = "#9bdeac"
+GREEN = "green"
 
 # Font
 FONT_NAME = "Courier"
@@ -42,7 +42,7 @@ def start_timer():
             title_label.config(text="Break", fg=PINK)
             count_down(SHORT_BREAK_MIN * 60)
     else:
-        title_label.config(text="Work", fg=GREEN)
+        title_label.config(text="Work", fg=GREEN_LIGHT)
         count_down(WORK_MIN * 60)
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
@@ -70,17 +70,17 @@ def count_down(count):
 # window setup
 window = Tk()
 window.title("Pomodoro")
-window.config(padx=100, pady=50, bg=YELLOW)
+window.config(padx=100, pady=50, bg=GREEN)
 
 # Setting canvas to view tomato image
-canvas = Canvas(width=204, height=224, bg=YELLOW, highlightthickness=0)
+canvas = Canvas(width=204, height=224, bg=GREEN, highlightthickness=0)
 tomato_image = PhotoImage(file="tomato.png")
 canvas.create_image(103, 112, image=tomato_image)
 timer_text = canvas.create_text(103, 130, text="00:00", fill="white", font=(FONT_NAME, 28, "bold"))
 canvas.grid(row=1, column=1)
 
 # Title label
-title_label = Label(text="Timer", font=(FONT_NAME, 40, "bold"), fg=GREEN, bg=YELLOW, pady=5)
+title_label = Label(text="Timer", font=(FONT_NAME, 40, "bold"), fg=GREEN_LIGHT, bg=GREEN, pady=5)
 title_label.grid(row=0, column=1)
 
 # buttons
@@ -91,7 +91,7 @@ reset_button = Button(text="Reset", width=5, highlightthickness=0, command=reset
 reset_button.grid(row=2, column=2)
 
 # check marks label
-check_marks = Label(font=(FONT_NAME, 15, "bold"), bg=YELLOW, fg=GREEN, highlightthickness=0)
+check_marks = Label(font=(FONT_NAME, 15, "bold"), bg=GREEN, fg=GREEN_LIGHT, highlightthickness=0)
 check_marks.grid(row=3, column=1)
 
 
